@@ -9,7 +9,9 @@ def client_connection(ip_address=str,port=tuple[int]):
         socket_instance = socket.socket(AF_INET,SOCK_STREAM)
 
         if socket_instance.connect_ex((ip_address,port)) == 0:
-            print(port)
-        
-client_connection("127.0.0.1",(1,10000))
+            print({
+                'port':port,
+                "service":socket.getservbyport(port)
+            })
 
+        
