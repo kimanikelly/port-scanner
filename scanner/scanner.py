@@ -19,6 +19,7 @@ def client_connection(ip_address=str,port=tuple[int]):
                     "Status":"Open",
                     "Service":socket.getservbyport(port)
                 })
+        
             socket_instance.close()
         
     except socket.gaierror:
