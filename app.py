@@ -1,21 +1,35 @@
-import click
-
 from scanner.scanner import client_connection
 
-import click
+print("=========================================")
+ip_address  = input("Enter the target IP address: ").strip()
 
-@click.command()
-@click.option('--ip_address', prompt='Enter the target IP address')
-@click.option('--starting_port', prompt='Enter starting port number')
-@click.option('--ending_port', prompt='Enter the ending port number')
-def scan(ip_address,starting_port,ending_port):
-    
-    client_connection(
-        ip_address,
-        (int(starting_port),
-         int(ending_port)
-        )
-    )
+while ip_address == "":
+
+        print("=========================================")
+        print("The IP address cannot be an empty value!")
+        print("=========================================")
+        ip_address  = input("Enter the target IP address: ").strip()
+
+print("=========================================")
+starting_port  = input("Enter the starting port: ").strip()
+
+while starting_port == "":
+        
+    print("=========================================")
+    print("The starting port cannot be an empty value!")
+    print("=========================================")
+    starting_port  = input("Enter the starting port: ").strip()
+
+print("=========================================")
+ending_port = input("Enter the ending port: ").strip()
+print("=========================================")
+
+while ending_port == "":
+        
+    print("=========================================")
+    print("The ending port cannot be an empty value!")
+    print("=========================================")
+    ending_port  = input("Enter the ending port: ").strip()
 
 if __name__ == '__main__':
-    scan()
+    client_connection(ip_address,(starting_port,ending_port))
